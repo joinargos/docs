@@ -1,0 +1,43 @@
+---
+title: "Linear"
+description: "Connect Linear to bring issues, comments, and attachments into Argos and automatically create matters from Linear issues."
+---
+
+Linear connects with an API key. Once connected, Argos syncs your Linear workspace — issues, comments, and attachments — and creates or updates matters for each processed issue.
+
+## Connect Linear
+
+<Steps>
+  <Step title="Get your Linear API key">
+    In Linear, go to **Settings → API** and create a new personal API key. Copy the key — it starts with `lin_api_`.
+  </Step>
+  <Step title="Open Integrations in Argos">
+    Go to **Settings → Integrations** and click **New Connection**.
+  </Step>
+  <Step title="Select Linear">
+    Click the **Linear** tile. The **Connect Linear** dialog opens.
+  </Step>
+  <Step title="Enter your API key">
+    Paste your key into the **API Key** field (placeholder: `lin_api_...`) and click **Connect**.
+
+    If the key is invalid, Argos shows: *Invalid Linear API key.* Generate a new key in Linear and try again.
+  </Step>
+</Steps>
+
+## What gets synced
+
+After connecting, Argos syncs:
+
+- Your Linear organization, teams, workflow states, users, labels, projects, and cycles
+- All issues, comments, and issue attachments
+- Attachment file content (PDFs, documents) is extracted and indexed
+
+Sync runs automatically on connection and stays current incrementally.
+
+## How matters are created from Linear
+
+For each Linear issue Argos processes, it creates a corresponding matter in Argos (or updates an existing one if the issue was seen before). The matter contains the issue description, comments, and any attachments as sources — making the full context searchable through Ask Argos.
+
+## Disconnecting
+
+Go to **Settings → Integrations**, find the Linear row, and choose **Delete**. The dialog confirms: *This will delete the connection and remove access to Linear.*

@@ -1,0 +1,75 @@
+---
+title: "Creating a review workflow"
+description: "A workflow defines the terms Argos evaluates on every contract review. Set one up once, then reuse it for every contract of that type."
+---
+
+Workflows live under **Workflows** in the left navigation. Each workflow is a collection of configured terms. When you run a contract review, you pick a workflow and Argos applies every term in it to the uploaded contract.
+
+## Create a workflow
+
+<Steps>
+  <Step title="Open Workflows">
+    Click **Workflows** in the left navigation. If no workflows exist yet, you'll see *No workflows yet — Create a contract review workflow to start configuring terms.*
+  </Step>
+  <Step title="Click Add Workflow">
+    Click **Add Workflow**. In the dialog, enter a **Workflow title** (for example, `Commercial`) and an optional **Description**. Click **Create**.
+  </Step>
+  <Step title="Open the workflow">
+    Click the workflow you just created to open its detail page. You'll see a **Terms** section — this is where you define what Argos evaluates.
+  </Step>
+</Steps>
+
+## Add terms
+
+Each term tells Argos what question to ask about the contract and how to interpret the answer.
+
+<Steps>
+  <Step title="Click Create Term">
+    On the workflow detail page, click **Create Term**.
+  </Step>
+  <Step title="Fill in the term details">
+    | Field | What to enter |
+    |---|---|
+    | **Term name** | A short label, e.g. `Limitation of Liability` (200 characters max) |
+    | **Term description** | What this term covers (2,000 characters max) |
+    | **Template language** | Paste the verbatim clause from your standard template. Argos uses this for comparison when a template is available (10,000 characters max) |
+    | **Required term** | Toggle **Yes** if this term must always appear in the contract |
+    | **Notes** | Guidance for the attorney reviewer — shown alongside the AI assessment |
+    | **GP note** | Pre-populate a note to the General Partner when the term is rated non-Supported |
+    | **Invite collaborators** | Select groups that should provide input when a non-Supported rating is confirmed |
+  </Step>
+  <Step title="Set the question">
+    Choose a **Question type** and enter the **Question** Argos should answer about this term:
+
+    - **True / False** — yes/no questions, e.g. "Is there a cap on liability?"
+    - **String** — open-ended extraction, e.g. "What is the liability cap amount?"
+    - **Multiple choice** — pick from a defined list of options
+    - **Number** — extract a numeric value with a unit
+    - **Does not apply** — marks a term as always present/passing with no AI evaluation needed
+  </Step>
+  <Step title="Add rules">
+    Rules map the AI's extracted answer to a rating. Click **Add Rule** for each case:
+
+    *When parsed value is [condition] then rate term as [rating]*
+
+    Available ratings:
+
+    | Rating | Meaning |
+    |---|---|
+    | **Supported** | Contract matches your standard position |
+    | **Attention** | Acceptable but worth flagging |
+    | **Needs Further Review** | Requires attorney judgment |
+    | **Blocked** | Not acceptable — must be negotiated |
+
+    <Note>
+      Every question type except **Does not apply** requires at least one rule.
+    </Note>
+  </Step>
+  <Step title="Save the term">
+    Click **Create** (or **Save** if editing an existing term). Repeat for each term you want in the workflow.
+  </Step>
+</Steps>
+
+## Editing a workflow
+
+Open the workflow and click the term you want to change. The dialog title changes to **Edit [term name] configuration**. Make your changes and click **Save**. Changes apply to the next review you run — existing reviews are not retroactively updated.

@@ -1,0 +1,40 @@
+---
+title: "Running a contract review"
+description: "Upload a contract, choose a workflow, and Argos evaluates every configured term automatically."
+---
+
+## Start a review from a workflow
+
+<Steps>
+  <Step title="Open the workflow">
+    Click **Workflows** in the left navigation and open the workflow you want to use.
+  </Step>
+  <Step title="Upload the contract">
+    <!-- VERIFY: exact button label and upload mechanism to start a review from the workflow detail page -->
+    Use the upload control on the workflow page to attach the contract file. Accepted formats: PDF, DOCX, TXT, EML, XLSX, XLS, XML, MP4, MP3, MOV.
+
+    <Note>
+      Not all accepted file types produce a full AI analysis. For best results, use PDF or DOCX. If you have questions about a specific format, check with your Argos administrator.
+    </Note>
+  </Step>
+  <Step title="Wait for analysis">
+    Argos creates a matter for the review, then evaluates each configured term in parallel. The review page shows progress as terms complete. Most reviews finish within a few minutes depending on contract length and number of terms.
+  </Step>
+</Steps>
+
+## What Argos evaluates
+
+For each term, Argos:
+
+1. Reads the contract for relevant language.
+2. Extracts the answer to the configured question.
+3. Applies your rules to assign a rating (Supported, Attention, Needs Further Review, or Blocked).
+4. Cites the specific contract language that supports its assessment.
+
+**Template comparison** — if your workflow term includes **Template language**, Argos also compares the contract's language to your standard clause and flags material differences.
+
+**Paper classification** — when a template is configured on the workflow, Argos classifies the contract as **Self-advised Paper** (your paper) or **Third-Party Paper** (counterparty's paper) and runs an additional check for material outside-template deviations not covered by your configured terms.
+
+## Uploading a new contract version
+
+You can upload a revised contract version once the current review is complete. While a review is still in progress, the upload control shows: *Finish the current contract review before uploading a new version.* Once complete, upload the new version and Argos creates a new review linked to the same matter. Previous versions remain accessible via the **Version** selector at the top of the review page.

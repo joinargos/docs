@@ -1,0 +1,43 @@
+---
+title: "Google Drive"
+description: "Connect Google Drive to attach Drive files directly to matters and Ask Argos conversations."
+---
+
+Google Drive is a manual-selection integration. You connect your account once, then pick individual files whenever you want to bring them into Argos. Argos does not automatically sync your entire Drive.
+
+## Connect Google Drive
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and click **New Connection**.
+  </Step>
+  <Step title="Select Google Drive">
+    Click the **Google Drive** tile.
+  </Step>
+  <Step title="Authorize with Google">
+    You'll be redirected to Google to authorize Argos. Sign in and grant the requested access. After authorizing, your Drive connection appears in the integrations list with **Connected** status.
+  </Step>
+</Steps>
+
+## Using Drive files in Argos
+
+Once connected, a Drive file picker appears wherever you can add sources in Argos:
+
+- **Ask Argos** — click **Add files from Drive** to attach a file to your question. Argos syncs the file, then includes it in the answer context.
+- **Matters** — use the Drive picker in the Sources section to add Drive files to a matter. <!-- VERIFY: exact button label for the Drive picker on the matter creation/edit page -->
+
+### Supported file types
+
+The Drive picker accepts: PDF, TXT, EML (email files), DOCX, and Google Docs. Google Docs are converted automatically. Spreadsheets and presentation files are not supported in the picker.
+
+## What happens after you select a file
+
+1. Argos imports the file and syncs its content.
+2. For supported formats, Argos converts and extracts text, running OCR on PDFs where needed.
+3. The file is indexed and available for search and citation.
+
+## Disconnecting
+
+To remove the Drive connection, go to **Settings → Integrations**, find the Google Drive row, and choose **Delete**. The dialog confirms: *This will delete the connection and disconnect it from the Google Drive API.*
+
+<!-- VERIFY: whether previously imported Drive files remain indexed after the connection is deleted -->

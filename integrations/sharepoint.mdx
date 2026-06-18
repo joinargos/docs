@@ -1,0 +1,56 @@
+---
+title: "SharePoint"
+description: "Connect SharePoint to attach SharePoint files and folders to matters, with automatic delta sync when files change."
+---
+
+SharePoint connects through your Microsoft account. Once connected, you can select SharePoint files and folders as matter sources. Argos keeps the content in sync automatically after the initial selection.
+
+## Connect SharePoint
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and click **New Connection**.
+  </Step>
+  <Step title="Select SharePoint">
+    Click the **SharePoint** tile.
+  </Step>
+  <Step title="Authorize with Microsoft">
+    You'll be redirected to Microsoft to authorize Argos. Sign in and grant the requested access.
+  </Step>
+</Steps>
+
+<Note>
+  You can connect one SharePoint account at a time. To switch accounts, delete the existing SharePoint connection first: *Delete your existing SharePoint connection before connecting a different account.*
+</Note>
+
+## Adding SharePoint files to a matter
+
+Once connected, a SharePoint picker is available when adding sources to a matter.
+
+<!-- VERIFY: exact button label for the SharePoint picker on the matter page -->
+
+1. Open or create a matter.
+2. Use the SharePoint picker to browse and select files or folders.
+3. Click to confirm your selection. Argos syncs the content, extracts text, and indexes it.
+
+<Warning>
+  Selecting a folder that is empty or that you don't have access to will cause the import to fail. Make sure the folder contains at least one accessible file before selecting it.
+</Warning>
+
+## What gets synced
+
+- Individual files you select
+- All accessible files within folders you select
+- Ongoing delta changes — when a file you've selected is updated in SharePoint, Argos picks up the change automatically and reindexes affected matters
+
+## Supported file types
+
+Argos converts and indexes common document formats (PDF, DOCX, and others). File types not supported for content extraction are stored but may not be fully searchable.
+
+<!-- VERIFY: complete list of SharePoint file types that produce full text extraction vs. metadata-only -->
+
+## Disconnecting
+
+Go to **Settings → Integrations**, find the SharePoint row, and choose **Delete**. The dialog confirms: *This will delete the connection and disconnect it from Microsoft Graph.*
+
+<!-- VERIFY: whether previously synced SharePoint files remain indexed after the connection is deleted -->

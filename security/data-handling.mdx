@@ -1,0 +1,51 @@
+---
+title: "Security & Compliance"
+description: "How Argos isolates your organization's data, handles credentials, and processes content for search and AI."
+---
+
+## Data isolation
+
+Every piece of data in Argos is scoped to your organization. Records, files, emails, and search indexes are tagged and partitioned by organization at every layer — your data is never commingled with another organization's.
+
+Search and vector indexes use organization-specific namespaces. File storage uses organization-scoped paths. API routes validate organization membership before returning any data.
+
+## Matter-level access control
+
+Within your organization, matters have their own access controls. Only the matter creator, users or groups with explicit access, and organization administrators can view a matter. If a user navigates to a matter they don't have access to, they see **You don't have access to this matter**.
+
+Permissions are enforced at the API level — it's not possible to access a matter's content by navigating directly to its URL without the appropriate access.
+
+## Credential storage
+
+All OAuth tokens and API keys for connected integrations (Gmail, Outlook, Google Drive, SharePoint, Slack, Linear, Asana) are stored encrypted in Argos's database. Credentials are never stored in plain text.
+
+## How content is processed
+
+When you connect an integration or upload a file, the following happens:
+
+1. Argos stores integration metadata and credentials (encrypted).
+2. Sync workflows fetch content from the external system.
+3. Raw or converted content is stored in secure object storage, scoped to your organization.
+4. Conversion and OCR workflows produce searchable text for supported file types.
+5. Indexing writes content to organization-scoped search indexes.
+6. Ask Argos and Contract Review retrieve content only through scoped tools — they cannot access another organization's data.
+
+## AI and your data
+
+Argos uses AI models to power Ask Argos answers, contract term extraction, and other features. Your content is sent to these models only when you ask a question or run a review — not in bulk or speculatively.
+
+<!-- VERIFY: model-training wording needs legal/product sign-off -->
+
+## Slack data retention
+
+Removing Slack channel data from Argos via the **Delete data** control removes messages and files from Argos search and other surfaces. It does not delete anything in Slack. Deleted channel data is excluded from Ask Argos results.
+
+## Soft deletion
+
+When records are deleted in Argos — matters, files, messages — they are soft-deleted and hidden from all queries by default. Soft-deleted records are not returned in search results or visible in the UI.
+
+## Disconnecting integrations
+
+Disconnecting or deleting an integration stops future syncing. Go to **Settings → Integrations** to manage connections.
+
+<!-- VERIFY: comprehensive retention policy for synced data after deleting a non-Slack integration (e.g. Gmail, Drive) — the code reveals the delete flow but not the full data-purge policy for each integration type -->

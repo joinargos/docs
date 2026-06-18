@@ -1,0 +1,37 @@
+---
+title: "Asana"
+description: "Connect Asana to make your Asana workspaces and project content available in Argos."
+---
+
+Asana connects with an API key. On connection, Argos validates the key, identifies all workspaces accessible to your Asana user, and marks them connected.
+
+## Connect Asana
+
+<Steps>
+  <Step title="Get your Asana API key">
+    In Asana, go to **My Profile Settings → Apps → Manage Developer Apps** and create a personal access token. Copy the token — it looks like `1/123456:abcdef...`.
+  </Step>
+  <Step title="Open Integrations in Argos">
+    Go to **Settings → Integrations** and click **New Connection**.
+  </Step>
+  <Step title="Select Asana">
+    Click the **Asana** tile. The **Connect Asana** dialog opens.
+  </Step>
+  <Step title="Enter your API key">
+    Paste your token into the **API Key** field (placeholder: `1/123456:abcdef...`) and click **Connect**.
+
+    If the key is invalid, Argos shows: *Invalid Asana API key.*
+  </Step>
+</Steps>
+
+## What gets connected
+
+On connection, Argos discovers and connects all Asana workspaces available to your user account automatically. No manual workspace selection is required.
+
+Argos also syncs project content and attachment files from connected workspaces, including attached documents with text extraction for supported file types.
+
+<!-- VERIFY: the exact scope of what's available to search after connecting Asana — specifically whether project/task content appears in Ask Argos results and in what form -->
+
+## Disconnecting
+
+Go to **Settings → Integrations**, find the Asana row, and choose **Delete**. The dialog confirms: *This will delete the connection and remove access to Asana.*

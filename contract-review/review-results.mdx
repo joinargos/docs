@@ -1,0 +1,64 @@
+---
+title: "Reviewing results"
+description: "Walk through Argos's contract assessment term by term, confirm or adjust ratings, and complete the review."
+---
+
+Open the review at `/contract-reviews/[id]` — the page header reads **Review analysis:** followed by the contract name.
+
+## The Analyzed Terms panel
+
+The right panel, headed **Analyzed terms**, organizes every term into three tabs:
+
+| Tab | What's here |
+|---|---|
+| **Rating pending (n)** | Terms the AI has assessed but that haven't been confirmed by a reviewer yet |
+| **Rating confirmed (n)** | Terms a reviewer has explicitly confirmed or adjusted |
+| **Auto confirmed (n)** | Terms Argos auto-confirmed based on your rule configuration |
+
+Terms are also grouped within each tab:
+
+- **Outside template** — deviations from your template not covered by a configured term (appears only when a template is configured)
+- **Configured terms** — your workflow's terms
+- **Matches Template** — contract language that matches the template exactly
+
+## Reviewing a term
+
+<Steps>
+  <Step title="Select a term">
+    Click any term in the panel. Argos shows the AI's full assessment on the left side of the page.
+  </Step>
+  <Step title="Read the assessment">
+    The detail view shows:
+
+    - **Value** — what Argos extracted (e.g. the liability cap amount, or True/False)
+    - **Term rating** — the AI's rating based on your rules
+    - **Contract language** — the exact contract text Argos cited
+    - **Template language** — your standard clause (if configured)
+    - **Template comparison** — a summary of how the contract language differs from your template
+    - **Previous version** — the same term's assessment from a prior version, if available
+    - **Precedent Matters** — similar matters from your archive for reference
+    - **Notes** — reviewer guidance you configured on the term
+    - **General Partner note** — pre-populated GP guidance, if configured
+  </Step>
+  <Step title="Confirm or adjust">
+    Use **Confirm AI assessment** to accept the rating as-is, or change the **Term rating** and **Value** if you disagree with the AI. You can also add a **Precedent note** for future reference.
+
+    Confirmed terms move to the **Rating confirmed** tab. Other users with matter access see updates in real time.
+  </Step>
+</Steps>
+
+## Bulk-confirming terms
+
+To confirm all remaining pending terms at once, click **Confirm All** at the top of the **Rating pending** tab. Review this carefully — it confirms the AI's assessment on every unreviewed term.
+
+## Completing the review
+
+Once you're satisfied with all term ratings, click **Complete review**. Argos marks the review complete and sends the **Contract review complete** confirmation.
+
+<Warning>
+  Completing a review is the signal that attorney review is done. Make sure all terms have been reviewed before clicking Complete review.
+</Warning>
+
+## Reading the summary
+
+Click **Summary** at the top of the review page to see a rolled-up view of all term ratings for this contract.

@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "almond",
   "name": "Argos Help Center",
-  "description": "Step-by-step guides for every product—platform setup, analytics, and integrations in one place.",
+  "description": "Help center for Argos — legal operations platform for in-house legal teams.",
   "colors": {
     "primary": "#18181B",
     "light": "#FFFFFF",
@@ -25,42 +25,46 @@
           "anchor": "Home",
           "icon": "house",
           "href": "/"
-        },
-        {
-          "anchor": "Changelog",
-          "icon": "scroll-text",
-          "href": "https://www.mintlify.com/docs/changelog"
-        },
-        {
-          "anchor": "Help",
-          "icon": "life-buoy",
-          "href": "https://www.mintlify.com/docs/contact-support"
         }
       ]
     },
     "directory": "card",
     "groups": [
       {
-        "group": "Platform",
-        "icon": "layers",
+        "group": "Getting Started",
+        "icon": "rocket",
         "expanded": true,
         "pages": [
-          "platform/quickstart",
-          "platform/key-concepts",
-          "platform/configuration/settings",
-          "platform/configuration/user-management",
-          "platform/administration/roles-permissions"
+          "getting-started/overview",
+          "getting-started/quickstart"
         ]
       },
       {
-        "group": "Analytics",
-        "icon": "chart-bar",
+        "group": "Matters",
+        "icon": "folder-open",
         "expanded": true,
         "pages": [
-          "analytics/quickstart",
-          "analytics/connect-data",
-          "analytics/dashboards/create-dashboard",
-          "analytics/reports/scheduled-reports"
+          "matters/how-matters-work",
+          "matters/filing-from-integrations"
+        ]
+      },
+      {
+        "group": "Ask Argos",
+        "icon": "message-circle",
+        "expanded": true,
+        "pages": [
+          "archive/asking-questions",
+          "archive/cited-answers"
+        ]
+      },
+      {
+        "group": "Contract Review",
+        "icon": "file-check",
+        "expanded": true,
+        "pages": [
+          "contract-review/create-workflow",
+          "contract-review/run-a-review",
+          "contract-review/review-results"
         ]
       },
       {
@@ -68,10 +72,28 @@
         "icon": "plug",
         "expanded": true,
         "pages": [
-          "integrations/quickstart",
-          "integrations/authentication",
-          "integrations/connectors/crm",
-          "integrations/webhooks/configure"
+          "integrations/email",
+          "integrations/slack",
+          "integrations/google-drive",
+          "integrations/sharepoint",
+          "integrations/linear",
+          "integrations/asana"
+        ]
+      },
+      {
+        "group": "Security & Compliance",
+        "icon": "shield",
+        "expanded": true,
+        "pages": [
+          "security/data-handling"
+        ]
+      },
+      {
+        "group": "Account & Billing",
+        "icon": "circle-user",
+        "expanded": true,
+        "pages": [
+          "account-billing/overview"
         ]
       }
     ]

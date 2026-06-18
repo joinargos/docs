@@ -1,0 +1,46 @@
+---
+title: "Filing matters from your tools"
+description: "Argos can create and update matters automatically from connected integrations — Gmail, Outlook, Slack, and Linear."
+---
+
+When you connect an integration, Argos doesn't just make that content searchable — it can also use it to create and update matters without manual effort.
+
+## How automatic filing works
+
+After you connect an integration, Argos monitors incoming content and files relevant items into matters. The exact behavior depends on the integration:
+
+<AccordionGroup>
+  <Accordion title="Gmail and Outlook">
+    After connecting your mailbox, Argos syncs your email. Threads that appear relevant to legal work are automatically queued for matter import — Argos either adds them to an existing matter or creates a new one.
+
+    <!-- VERIFY: customer-facing explanation of what makes a thread "relevant" — code does this classification internally but no UI copy was found for it -->
+
+    You can also manually add an email thread to a matter by opening the matter and using the Sources section.
+  </Accordion>
+
+  <Accordion title="Slack">
+    After connecting Slack and syncing channels, Argos can update matters from batches of channel messages. If a Slack channel is linked to a matter, messages from that channel feed into the matter automatically.
+
+    <!-- VERIFY: exact customer-facing way to link a Slack channel to a matter — the code supports binding/unbinding but the UI flow wasn't found in the inspected code -->
+  </Accordion>
+
+  <Accordion title="Linear">
+    After connecting Linear with your API key, Argos syncs issues. For each processed issue, Argos creates or updates a corresponding matter, using the Linear issue as the source. Comments and attachments are included.
+  </Accordion>
+</AccordionGroup>
+
+## Filing manually
+
+For any integration, you can always file content into a matter yourself:
+
+1. Open the matter you want to add content to.
+2. In the **Sources** section, use the relevant picker or upload control.
+3. Argos syncs and indexes the new content.
+
+## What gets filed
+
+Argos attaches source content — not just metadata — to matters. That means the full text of emails, messages, files, and issue descriptions is indexed and searchable through Ask Argos.
+
+<Note>
+  Content from connected integrations is scoped to your organization. Other organizations on Argos cannot access your matters or sources.
+</Note>
