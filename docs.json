@@ -74,6 +74,7 @@
         "expanded": true,
         "pages": [
           "integrations/email",
+          "integrations/gmail-matter-filing",
           "integrations/slack",
           "integrations/google-drive",
           "integrations/sharepoint",

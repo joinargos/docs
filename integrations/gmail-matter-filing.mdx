@@ -1,0 +1,77 @@
+---
+title: "How Argos files matters from Gmail"
+description: "Learn how Argos reviews Gmail threads and decides whether to create a matter, attach to an existing matter, or skip the thread."
+---
+
+Once your Gmail account is connected, Argos can turn legally relevant email into matters automatically — without you forwarding threads or filing them by hand. This page explains how Argos reviews your Gmail threads and how it decides what to do with each one.
+
+For instructions on connecting your mailbox, see [Email — Gmail & Outlook](/integrations/email).
+
+## What happens after you connect Gmail
+
+Matter filing begins after you connect a Gmail account. Argos syncs your Gmail threads and looks for ones that appear related to legal work.
+
+Argos works at the level of **Gmail threads** — the full back-and-forth conversation — not isolated messages. It doesn't try to create a matter from every email. Instead, it focuses on **eligible threads**: those that look legally relevant, or where the situation is uncertain enough to be worth a closer look.
+
+## How Argos decides what to file
+
+For each eligible thread, Argos reads the thread content and decides on one of three outcomes:
+
+- **Create a new matter** from the thread.
+- **Attach the thread to an existing matter** when it belongs with work you already have.
+- **Skip the thread** when there's no clear legal issue.
+
+Before deciding, Argos reads the thread and compares it against your existing matters to see whether the conversation continues something already underway. If a thread includes attachments, Argos may inspect relevant attachments to inform the decision.
+
+<Note>
+  Argos doesn't show the reason behind each create, attach, or skip decision in the product today. You'll see the resulting matters, but not an internal explanation of why each thread was handled the way it was.
+</Note>
+
+## When Argos creates a new matter
+
+Argos creates a new matter when a thread describes a distinct legal issue that doesn't already correspond to an existing matter. When this happens, the Gmail thread becomes a **source** on the new matter.
+
+From there, Argos's normal enrichment process fills in the matter's details — such as its name, fact pattern, metadata, activities, and any AI-enabled custom fields — based on the thread's content. You can review and adjust all of these afterward.
+
+## When Argos adds email to an existing matter
+
+If a thread belongs with work you already have, Argos attaches the thread to that existing matter instead of creating a duplicate. The thread becomes another source on that matter, and the matter's details are refreshed to reflect the new content.
+
+This keeps related correspondence together — for example, follow-up emails on an ongoing negotiation are added to the same matter rather than spawning new ones.
+
+## When Argos skips a thread
+
+Argos prefers skipping over creating a weak or noisy matter. If it can't identify a clear legal issue from a thread, it skips it.
+
+Skipping keeps your matter list focused on real legal work and avoids clutter from routine or unrelated email. A skipped thread isn't turned into a matter, though your Gmail content remains searchable in Argos.
+
+## How Argos avoids duplicate matters
+
+Argos is designed to reduce duplicate matters in two ways:
+
+- **Matching to existing matters** — before creating anything, Argos compares a thread against similar existing matters. If it finds a good match, it attaches the thread to that matter rather than creating a new one.
+- **Combining related threads** — if several Gmail threads in the same import batch appear to describe the same new matter, Argos can combine them into a single matter instead of creating one matter per thread.
+
+Even with these safeguards, you should still review the matters Argos generates and merge or adjust anything that isn't quite right.
+
+## What happens to attachments
+
+When a thread is relevant or uncertain, Argos indexes its attachments so they're searchable alongside the email. While deciding what to do with a thread, Argos may inspect relevant attachments to better understand the issue.
+
+Not every attachment is read in every case — Argos focuses on the attachments that matter for understanding the thread.
+
+## Reviewing imported matters
+
+Automatic filing is meant to save you time, not replace your judgment. After Argos imports matters from Gmail, it's good practice to:
+
+- Review newly created matters and confirm they represent real, distinct legal issues.
+- Check that threads were attached to the right matter.
+- Edit the matter name, fact pattern, custom fields, or other details if anything needs correcting.
+
+## Notes and limitations
+
+- Argos works with **Gmail threads**, not individual messages.
+- Argos evaluates **eligible threads** — those that look legally relevant or uncertain — not every email in your mailbox.
+- Argos **attaches** a thread to an existing matter when it fits, rather than creating a duplicate.
+- The reason behind each create, attach, or skip decision **isn't shown in the product UI today**.
+- Gmail import is designed to reduce duplicate matters, but **reviewing generated matters is still recommended**.
