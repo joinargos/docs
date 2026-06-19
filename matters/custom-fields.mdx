@@ -1,0 +1,110 @@
+---
+title: "Custom fields"
+description: "Track structured matter details with custom fields, including AI-populated values."
+---
+
+Custom fields let your organization attach structured, consistent details to every matter — things like case priority, governing law, counterparty, or renewal date. Admins define the fields once, and they appear on every matter for your team to fill in or review.
+
+## What custom fields are
+
+A custom field is an organization-defined attribute on a matter. Once an admin creates a field, it shows up on matter detail pages in a section called **Legal Tracking**, where your team can read and edit its value.
+
+Values can be filled in two ways:
+
+- **Automatically** — fields marked **AI enabled** can be populated from a matter's source materials when the matter is created or regenerated.
+- **Manually** — anyone with edit access to a matter can set or correct a value inline.
+
+Empty values appear as a dash (**–**) so it's clear when a field hasn't been filled in yet.
+
+## Create a custom field
+
+Custom fields are managed by admins. Creating, editing, or deleting fields requires permission to manage custom fields — if you don't have it, ask your admin.
+
+<Steps>
+  <Step title="Open Custom Fields settings">
+    Go to **Settings → Custom Fields**. This page lists every custom field your organization has configured. {/* VERIFY: exact wording of the settings sidebar link and the button used to add a new field */}
+  </Step>
+  <Step title="Start a new field">
+    Open the **Create custom field** dialog and give the field a **Name** (for example, *Case Priority*).
+  </Step>
+  <Step title="Choose a field type">
+    Pick the field **type** that matches the kind of value you want to store. The type can't be changed after the field is created, so choose carefully.
+  </Step>
+  <Step title="Set the field options">
+    Configure the remaining settings, then click **Create**:
+
+    - **Description** *(optional)* — a short note explaining what the field is for.
+    - **Required** — when on, the field must have a value when someone edits and saves it.
+    - **AI enabled** — when on, Argos can populate the field automatically from a matter's source materials.
+    - **AI instructions** — guidance for the AI on how to fill in the field. Shown only when **AI enabled** is on.
+  </Step>
+</Steps>
+
+<Note>
+  For **Select** and **Multi-select** fields you must add at least one option — these are the choices that appear in the dropdown. Add a label for each option before saving.
+</Note>
+
+To change a field later, open it from the **Custom Fields** settings page and use **Edit custom field**. You can update everything except the field type.
+
+## Choose a field type
+
+Custom fields support six types:
+
+| Type | Use it for |
+|---|---|
+| **Text** | Free-form text, such as a counterparty name or notes |
+| **Number** | Numeric values, such as a contract value or count |
+| **Boolean** | Yes/no values, such as whether a matter is under NDA |
+| **Date** | A single calendar date, such as a renewal or expiry date |
+| **Select** | A single choice from a fixed list of options |
+| **Multi-select** | One or more choices from a fixed list of options |
+
+<Warning>
+  A field's type is permanent. You can't change it after the field is created — to switch types, create a new field.
+</Warning>
+
+## Use AI-populated fields
+
+When a field has **AI enabled** turned on, Argos can fill it in automatically using the matter's source materials (documents, emails, and other content) when the matter is created or regenerated.
+
+- Use **AI instructions** to tell the AI how to determine the value — for example, *"Set to the contract's governing law jurisdiction."*
+- When a matter is regenerated, AI-enabled values are refreshed. Values you've set or corrected manually are not overwritten.
+- You can always review and edit AI-populated values on the matter — treat them as a starting point and correct anything that's off.
+
+Fields that aren't AI enabled are filled in manually only.
+
+## Edit custom fields on a matter
+
+Custom field values live in the **Legal Tracking** section of a matter's detail page.
+
+- Hover over a value and use the inline edit control to change it — there's no separate dialog.
+- Empty fields show a dash (**–**) until you set a value.
+- Save the value to apply it. If a field is **Required**, you must provide a value before it will save.
+
+<Note>
+  Custom fields aren't part of the matter creation form today. New matters start without custom field values; the AI fills in AI-enabled fields during processing, and you can edit any field afterward on the matter page.
+</Note>
+
+## Filter and sort by custom fields
+
+Custom fields can help you organize the Matters list:
+
+- **Filter** — **Boolean**, **Select**, and **Multi-select** fields can be used as filters. Each filter also offers a **Not set** option to find matters where the field is empty.
+- **Sort** — any custom field type can be used to sort the Matters list, ascending or descending.
+
+Text, Number, and Date fields can be sorted but not used as filters.
+
+## Delete a custom field
+
+Open the field from the **Custom Fields** settings page and choose to delete it. Deleting a field removes it from the product going forward — it no longer appears on matters. Existing matter data is preserved internally, but the field is no longer shown.
+
+<Warning>
+  Deleting and recreating a field with the same name does not restore the old values. The previous data stays hidden.
+</Warning>
+
+## Limits and notes
+
+- **No drag-to-reorder** — fields appear in the order they were created; there's no way to reorder them in the UI.
+- **No default values** — fields start empty until the AI or a user sets a value.
+- **No bulk or CSV import** — values are set by the AI or entered manually, one matter at a time.
+- **Not in the creation form** — custom fields are filled in after a matter is created, not during creation.
