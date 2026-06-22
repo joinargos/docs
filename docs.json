@@ -46,6 +46,7 @@
         "pages": [
           "matters/how-matters-work",
           "matters/filing-from-integrations",
+          "matters/gmail-matter-filing",
           "matters/custom-fields"
         ]
       },
@@ -74,7 +75,6 @@
         "expanded": true,
         "pages": [
           "integrations/email",
-          "integrations/gmail-matter-filing",
           "integrations/slack",
           "integrations/google-drive",
           "integrations/sharepoint",
