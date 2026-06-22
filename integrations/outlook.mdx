@@ -1,0 +1,50 @@
+---
+title: "Outlook"
+description: "Connect your Outlook mailbox to make emails searchable in Argos and automatically file relevant threads into matters."
+---
+
+The Outlook integration (Microsoft 365) connects your mailbox to Argos. Once connected, Argos syncs your email history and automatically queues relevant threads for matter import.
+
+## Connect Outlook
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and click **New Connection**.
+  </Step>
+  <Step title="Select Outlook">
+    Click the **Outlook** tile.
+  </Step>
+  <Step title="Authorize with Microsoft">
+    You'll be redirected to Microsoft to authorize Argos. Sign in with the Microsoft account whose mailbox you want to connect.
+  </Step>
+  <Step title="Watch the sync status">
+    Sync status shows **Sync queued → Sync in progress → Sync completed**. Argos syncs your mailbox folders, messages, threads, and attachments.
+  </Step>
+</Steps>
+
+<Note>
+  You can connect one Outlook mailbox at a time. To switch mailboxes, go to **Settings → Integrations**, delete the existing Outlook connection, then connect a new one.
+</Note>
+
+## What gets synced
+
+The Outlook integration syncs:
+
+- Email threads and individual messages
+- Attachments from threads identified as relevant to legal work
+- Sync continues automatically — new emails are picked up incrementally after the initial sync
+
+## Automatic matter filing
+
+After syncing, Argos identifies threads that appear relevant to legal work and automatically queues them for matter import. Relevant threads are attached to new or existing matters without manual effort.
+
+{/* VERIFY: customer-facing explanation of what makes a thread "relevant" for matter import — the classification happens internally and no UI copy explaining the criteria was found in code */}
+
+## Disconnecting or deleting
+
+To remove the Outlook connection, go to **Settings → Integrations**, find the connection row, and choose **Disconnect** or **Delete**.
+
+- **Disconnect** pauses syncing but preserves indexed data.
+- **Delete** removes the connection entirely. The dialog confirms: *This will delete the connection and disconnect it from Microsoft Graph*.
+
+{/* VERIFY: whether existing indexed email data is retained or removed after deleting a connection — retention behavior after delete was not confirmed in code */}

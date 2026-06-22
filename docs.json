@@ -74,7 +74,8 @@
         "icon": "plug",
         "expanded": true,
         "pages": [
-          "integrations/email",
+          "integrations/gmail",
+          "integrations/outlook",
           "integrations/slack",
           "integrations/google-drive",
           "integrations/sharepoint",

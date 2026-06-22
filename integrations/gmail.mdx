@@ -1,9 +1,9 @@
 ---
-title: "Email — Gmail & Outlook"
-description: "Connect your Gmail or Outlook mailbox to make emails searchable in Argos and automatically file relevant threads into matters."
+title: "Gmail"
+description: "Connect your Gmail mailbox to make emails searchable in Argos and automatically file relevant threads into matters."
 ---
 
-Argos supports two email integrations — **Gmail** (Google Workspace) and **Outlook** (Microsoft 365). Both work the same way: connect your mailbox, Argos syncs your email history, and relevant threads are automatically queued for matter import.
+The Gmail integration (Google Workspace) connects your mailbox to Argos. Once connected, Argos syncs your email history and automatically queues relevant threads for matter import.
 
 ## Connect Gmail
 
@@ -26,30 +26,9 @@ Argos supports two email integrations — **Gmail** (Google Workspace) and **Out
   Each Gmail account can only be connected by one Argos user at a time. If you see *This Gmail account is already connected by another user*, contact your Argos administrator.
 </Note>
 
-## Connect Outlook
-
-<Steps>
-  <Step title="Open Integrations">
-    Go to **Settings → Integrations** and click **New Connection**.
-  </Step>
-  <Step title="Select Outlook">
-    Click the **Outlook** tile.
-  </Step>
-  <Step title="Authorize with Microsoft">
-    You'll be redirected to Microsoft to authorize Argos. Sign in with the Microsoft account whose mailbox you want to connect.
-  </Step>
-  <Step title="Watch the sync status">
-    Sync status shows **Sync queued → Sync in progress → Sync completed**. Argos syncs your mailbox folders, messages, threads, and attachments.
-  </Step>
-</Steps>
-
-<Note>
-  You can connect one Outlook mailbox at a time. To switch mailboxes, go to **Settings → Integrations**, delete the existing Outlook connection, then connect a new one.
-</Note>
-
 ## What gets synced
 
-Both Gmail and Outlook sync:
+The Gmail integration syncs:
 
 - Email threads and individual messages
 - Attachments from threads identified as relevant to legal work
@@ -63,9 +42,9 @@ After syncing, Argos identifies threads that appear relevant to legal work and a
 
 ## Disconnecting or deleting
 
-To remove an email connection, go to **Settings → Integrations**, find the connection row, and choose **Disconnect** or **Delete**.
+To remove the Gmail connection, go to **Settings → Integrations**, find the connection row, and choose **Disconnect** or **Delete**.
 
 - **Disconnect** pauses syncing but preserves indexed data.
-- **Delete** removes the connection entirely. The dialog confirms: *This will delete the connection and disconnect it from the Gmail API* (or Microsoft Graph for Outlook).
+- **Delete** removes the connection entirely. The dialog confirms: *This will delete the connection and disconnect it from the Gmail API*.
 
 {/* VERIFY: whether existing indexed email data is retained or removed after deleting a connection — retention behavior after delete was not confirmed in code */}
