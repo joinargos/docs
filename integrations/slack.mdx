@@ -41,6 +41,27 @@ A confirmation dialog appears: *Messages and files from #channel will be removed
 
 Channels that have been removed from the workspace show as **Removed on [date]** or **Deleted on [date]**.
 
+## Permissions and OAuth scopes
+
+When you install the Argos app, Slack asks you to approve the following bot token scopes:
+
+| Consent screen text | Slack scope | Type |
+|---|---|---|
+| View messages and other content in public channels that Argos has been added to | `channels:history` | read |
+| View basic information about public channels in your workspace | `channels:read` | read |
+| View files shared in channels and conversations that Argos has been added to | `files:read` | read |
+| View messages and other content in private channels that Argos has been added to | `groups:history` | read |
+| View basic information about private channels that Argos has been added to | `groups:read` | read |
+| View the name, email domain, and icon for workspaces Argos is connected to | `team:read` | read |
+| View people in your workspace | `users:read` | read |
+| View email addresses of people in your workspace | `users:read.email` | read |
+| Send messages as the Argos bot | `chat:write` | write |
+
+Two things to note:
+
+- The message and file scopes are **channel-scoped**: Argos can only read content in public and private channels it has explicitly been added to — not your entire workspace.
+- The only write capability is `chat:write` (posting messages as the Argos bot). Argos cannot edit or delete other people's messages, and requests no administrative scopes.
+
 ## What gets synced
 
 Argos syncs:

@@ -26,6 +26,18 @@ The Outlook integration (Microsoft 365) connects your mailbox to Argos. Once con
   You can connect one Outlook mailbox at a time. To switch mailboxes, go to **Settings → Integrations**, delete the existing Outlook connection, then connect a new one.
 </Note>
 
+## Permissions and OAuth scopes
+
+When you authorize Argos, Microsoft asks you to consent to the following delegated Microsoft Graph permissions:
+
+| Consent screen text | Graph scope | What it allows |
+|---|---|---|
+| Maintain access to data you have given it access to | `offline_access` | Lets Argos refresh its access token so syncing continues without you signing in each time. Grants no additional permissions of its own. |
+| Sign you in and read your profile | `User.Read` | Signs you in with your organizational account and reads your basic profile and company information. Includes the `openid` and `profile` sign-in scopes. |
+| Read your mail | `Mail.Read` | Read-only access to email in your mailbox. |
+
+All three are read or sign-in scopes — Argos cannot send, modify, or delete mail. Access is delegated to the signed-in user; Argos sees only what that user can see.
+
 ## What gets synced
 
 The Outlook integration syncs:

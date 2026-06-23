@@ -37,6 +37,18 @@ Once connected, a SharePoint picker is available when adding sources to a matter
   Selecting a folder that is empty or that you don't have access to will cause the import to fail. Make sure the folder contains at least one accessible file before selecting it.
 </Warning>
 
+## Permissions and OAuth scopes
+
+When you authorize Argos, Microsoft asks you to consent to the following delegated Microsoft Graph permissions:
+
+| Consent screen text | Graph scope | What it allows |
+|---|---|---|
+| Maintain access to data you have given it access to | `offline_access` | Lets Argos refresh its access token so syncing continues without you signing in each time. Grants no additional permissions of its own. |
+| Sign you in and read your profile | `User.Read` | Signs you in with your organizational account and reads your basic profile and company information. Includes the `openid` and `profile` sign-in scopes. |
+| Read all files that you have access to | `Files.Read.All` | Read-only access to all files the signed-in user can access. |
+
+All three are read or sign-in scopes — Argos cannot create, modify, or delete files. Access is delegated to the signed-in user; Argos sees only the files that user can already access.
+
 ## What gets synced
 
 - Individual files you select
