@@ -55,12 +55,12 @@ When you install the Argos app, Slack asks you to approve the following bot toke
 | View the name, email domain, and icon for workspaces Argos is connected to | `team:read` | read |
 | View people in your workspace | `users:read` | read |
 | View email addresses of people in your workspace | `users:read.email` | read |
-| Send and manage messages as the Argos bot | `chat:write` | write |
+| Send messages as the Argos bot | `chat:write` | write |
 
 Two things to note:
 
 - The message and file scopes are **channel-scoped**: Argos can only read content in public and private channels it has explicitly been added to — not your entire workspace.
-- The only write scope Argos requests is `chat:write`, which lets the Argos Slack app send and manage messages as the Argos bot. Argos does not request administrative scopes and cannot edit or delete other people's messages.
+- The only write scope Argos requests is `chat:write`, which lets Argos send messages as the Argos bot and update or delete messages that the Argos bot sends. Argos does not request administrative scopes and cannot edit or delete other people's messages.
 
 ## What gets synced
 
