@@ -19,6 +19,16 @@ Google Drive is a manual-selection integration. You connect your account once, t
   </Step>
 </Steps>
 
+## Permissions and OAuth scopes
+
+When you authorize Argos, Google asks you to consent to a single Google Drive API scope:
+
+| Consent screen text | Google scope | What it allows |
+|---|---|---|
+| See, edit, create, and delete only the specific Google Drive files you use with this app | `drive.file` | Per-file access limited to the files you open, create, or select through Argos. Within those files, Argos can view, download, edit, delete, organize, and manage sharing. |
+
+This is Google's most restrictive Drive scope. Argos has **no access to your Drive as a whole** — only the individual files you explicitly select or create through the app. It cannot see, search, or open any other file in your Drive.
+
 ## Using Drive files in Argos
 
 Once connected, a Drive file picker appears wherever you can add sources in Argos:

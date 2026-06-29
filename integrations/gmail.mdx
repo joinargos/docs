@@ -26,6 +26,21 @@ The Gmail integration (Google Workspace) connects your mailbox to Argos. Once co
   Each Gmail account can only be connected by one Argos user at a time. If you see *This Gmail account is already connected by another user*, contact your Argos administrator.
 </Note>
 
+## Permissions and OAuth scopes
+
+When you authorize Argos, Google asks you to consent to the following Gmail API scopes:
+
+| Consent screen text | Google scope | What it allows |
+|---|---|---|
+| View your email messages and settings | `gmail.readonly` | Read-only access to view and search your email messages and to view your settings, such as filters and labels. |
+| See and edit your email labels | `gmail.labels` | Lets Argos see and edit your Gmail labels so it can organize threads it files. This scope covers labels only — it does not grant access to message content. |
+
+Argos requests `gmail.readonly`, a Google restricted scope, so it can read and index your email messages for search and matter filing. This scope does not let Argos send, modify, or delete email.
+
+Argos also requests `gmail.labels` so it can see and edit Gmail labels used to organize filed threads. This scope does not grant access to message content.
+
+Access is delegated to the signed-in account, so Argos sees only what that account can see.
+
 ## What gets synced
 
 The Gmail integration syncs:
