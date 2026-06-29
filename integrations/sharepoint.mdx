@@ -47,7 +47,7 @@ When you authorize Argos, Microsoft asks you to consent to the following delegat
 | Sign you in and read your profile | `User.Read` | Signs you in with your organizational account and reads your basic profile and company information. Includes the `openid` and `profile` sign-in scopes. |
 | Read all files that you have access to | `Files.Read.All` | Read-only access to all files the signed-in user can access. |
 
-All three are read or sign-in scopes — Argos cannot create, modify, or delete files. Access is delegated to the signed-in user; Argos sees only the files that user can already access.
+All three are read or sign-in scopes — Argos cannot create, modify, or delete files. `Files.Read.All` authorizes Argos to read any file the signed-in user can access. In Argos, you choose the SharePoint files or folders to add as matter sources, and Argos syncs those selected sources and their updates.
 
 ## What gets synced
 
