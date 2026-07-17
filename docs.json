@@ -84,6 +84,16 @@
         ]
       },
       {
+        "group": "IT Setup",
+        "icon": "settings",
+        "expanded": true,
+        "pages": [
+          "it-setup/overview",
+          "it-setup/sso-and-provisioning",
+          "it-setup/microsoft-365-integrations"
+        ]
+      },
+      {
         "group": "Security & Compliance",
         "icon": "shield",
         "expanded": true,
