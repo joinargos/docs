@@ -1,0 +1,108 @@
+---
+title: "SSO and user provisioning"
+description: "Configure Argos single sign-on through WorkOS and Microsoft Entra ID, with optional SCIM user provisioning."
+---
+
+Argos uses WorkOS to connect your identity provider for enterprise single sign-on. Microsoft Entra ID connections use OpenID Connect (OIDC). If enabled for your organization, WorkOS Directory Sync also connects Entra ID to Argos through SCIM.
+
+<Note>
+  This application controls login and user provisioning only. Outlook and SharePoint use a separate Argos Microsoft application. See [Microsoft 365 integrations](/it-setup/microsoft-365-integrations).
+</Note>
+
+## Before you begin
+
+Ask Argos for a secure WorkOS setup link for your organization. The link opens a guided setup flow and provides the values specific to your connection.
+
+You will need access to create and configure applications in Microsoft Entra ID. Choose an owner for the application and for any credentials created during setup.
+
+<Warning>
+  Do not reuse another organization's WorkOS setup link, redirect URI, client ID, client secret, SCIM endpoint, or bearer token.
+</Warning>
+
+## Configure Entra ID OIDC SSO
+
+<Steps>
+  <Step title="Open the WorkOS setup link">
+    Open the secure link supplied by Argos. Under **Single Sign-On**, choose **Configure Single Sign-On**, then select **Entra ID OpenID Connect**.
+  </Step>
+  <Step title="Register an application in Entra ID">
+    In the Microsoft Entra admin center, go to **Identity → Applications → App registrations**, click **New registration**, and follow the WorkOS instructions for the application name and supported account type.
+  </Step>
+  <Step title="Add the WorkOS redirect URI">
+    Select **Web** as the redirect platform. Copy the redirect URI shown by WorkOS and paste it into the Entra application registration.
+  </Step>
+  <Step title="Collect the Entra configuration values">
+    From the new application, copy its **Application (client) ID**, create a client secret, and copy the **OpenID Connect metadata document** URL from **Endpoints**. The metadata URL is the discovery endpoint.
+  </Step>
+  <Step title="Complete the WorkOS connection">
+    Enter the client ID, client secret, and discovery endpoint in WorkOS. Follow the setup flow to add the requested ID token claims, including email, given name, and family name.
+  </Step>
+  <Step title="Assign users and groups">
+    Open the corresponding application under **Enterprise applications → Users and groups**. Assign the users or groups that should be able to sign in to Argos.
+  </Step>
+  <Step title="Test sign-in">
+    Have an assigned user open [app.joinargos.com](https://app.joinargos.com/) and sign in with their work account.
+  </Step>
+</Steps>
+
+## Your SSO client ID
+
+Entra generates a unique application client ID when you register the OIDC application. Copy it from the application's **Overview** page.
+
+| Value | Source |
+|---|---|
+| `<YOUR_ENTRA_CLIENT_ID>` | **Microsoft Entra admin center → App registrations → your Argos application → Overview → Application (client) ID** |
+
+The client ID identifies your organization's SSO application. It is not the fixed Argos Microsoft 365 integration client ID.
+
+<Warning>
+  Using a client ID from another organization can cause an OIDC audience mismatch because the token's `aud` claim will not identify your registered application.
+</Warning>
+
+## Manage the client secret
+
+Copy the client secret value when Entra displays it; Entra does not show it again after you leave the page. Store it in your organization's secret manager and record its expiration date.
+
+Create a replacement before the secret expires and update the WorkOS connection. Contact **[support@joinargos.com](mailto:support@joinargos.com)** if you need a new setup link or help coordinating rotation.
+
+## Configure SCIM user provisioning
+
+If SCIM is enabled for your organization, the WorkOS setup flow provides an endpoint and bearer token for Entra ID.
+
+<Steps>
+  <Step title="Open the Entra enterprise application">
+    In Microsoft Entra ID, open **Enterprise applications** and select the application associated with your Argos connection.
+  </Step>
+  <Step title="Configure provisioning">
+    Open **Provisioning** and configure automatic provisioning. Enter the WorkOS endpoint as the tenant URL and the WorkOS bearer token as the secret token.
+  </Step>
+  <Step title="Test the connection">
+    Use Entra's connection test before enabling provisioning. Resolve any authentication or attribute-mapping errors shown by Entra.
+  </Step>
+  <Step title="Set the provisioning scope">
+    Choose **Sync only assigned users and groups**, then assign the users or groups that should be provisioned to Argos.
+  </Step>
+  <Step title="Enable and verify provisioning">
+    Turn provisioning on. Use **Provision on demand** for an initial test user, then confirm that expected users and groups appear in Argos.
+  </Step>
+</Steps>
+
+<Warning>
+  Treat the SCIM bearer token as a secret. Do not include it in documentation, screenshots, or support tickets. Rotate it immediately if it is exposed.
+</Warning>
+
+## Troubleshooting
+
+| Issue | What to check |
+|---|---|
+| WorkOS asks for domain verification | Contact Argos before requesting a DNS change. Argos may be able to complete the verification through WorkOS. |
+| OIDC audience mismatch or invalid audience | Confirm that WorkOS contains the client ID generated by your Entra application, not an ID copied from another setup. |
+| An individual user cannot sign in | Confirm that the user or one of their groups is assigned to the Entra enterprise application. |
+| Sign-in stops working after previously succeeding | Check whether the Entra client secret expired and replace it if needed. |
+| Launching from an application portal fails | Confirm that the assigned application directs users to `https://app.joinargos.com/`. |
+| A user is missing from Argos | Confirm that provisioning is on, the user is assigned, and the most recent Entra provisioning cycle succeeded. |
+
+## Related resources
+
+- [WorkOS: Entra ID OIDC](https://workos.com/docs/integrations/entra-id-oidc)
+- [WorkOS: Entra ID SCIM](https://workos.com/docs/integrations/entra-id-scim)

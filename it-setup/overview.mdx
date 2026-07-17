@@ -1,0 +1,53 @@
+---
+title: "IT setup overview"
+description: "Prepare your identity provider and connected systems for Argos SSO, user provisioning, Outlook, and SharePoint."
+---
+
+This section is for identity, security, and collaboration administrators preparing Argos for their organization.
+
+<Warning>
+  Argos login and Microsoft 365 integrations use separate applications. Configuring SSO does not approve Outlook or SharePoint access, and approving Outlook or SharePoint does not configure SSO.
+</Warning>
+
+## What your organization may configure
+
+| Capability | Configured through | Customer IT action |
+|---|---|---|
+| Single sign-on | WorkOS and your identity provider | Register an application, configure the connection, and assign users or groups. |
+| User provisioning | WorkOS Directory Sync and your identity provider | Configure SCIM, assign users or groups, and enable provisioning. |
+| Outlook and SharePoint | Argos's multitenant Microsoft application | Grant administrator consent once, then let individual users connect their accounts in Argos. |
+| Other integrations | The integration provider | Follow the provider authorization flow described on the relevant integration page. |
+
+<CardGroup cols={2}>
+  <Card title="SSO and user provisioning" icon="key-round" href="/it-setup/sso-and-provisioning">
+    Configure enterprise login through WorkOS and optionally provision users and groups through SCIM.
+  </Card>
+  <Card title="Microsoft 365 integrations" icon="building-2" href="/it-setup/microsoft-365-integrations">
+    Approve the shared Argos application used for Outlook and SharePoint syncing.
+  </Card>
+</CardGroup>
+
+## What Argos provides
+
+Depending on the features your organization enables, Argos provides:
+
+- A secure, organization-specific WorkOS setup link for SSO and user provisioning
+- The redirect URI for your SSO application registration
+- The SCIM endpoint and bearer token when user provisioning is enabled
+- The fixed Argos Microsoft application client ID for Outlook and SharePoint
+- Support during configuration and testing
+
+<Note>
+  Setup links, redirect URIs, SCIM endpoints, bearer tokens, and tenant-specific consent links can be unique to your organization. Do not copy values from another organization's setup or publish secret values in tickets or documentation.
+</Note>
+
+## Before rollout
+
+- Identify the administrator responsible for identity and application consent.
+- Decide which users or groups should have access to Argos.
+- Confirm whether you need SSO only or SSO with SCIM provisioning.
+- Confirm whether users need Outlook, SharePoint, or both.
+- Plan ownership and rotation for any client secret or bearer token created during setup.
+- Test with a small user group before assigning Argos broadly.
+
+If you need organization-specific setup values, email **[support@joinargos.com](mailto:support@joinargos.com)**.

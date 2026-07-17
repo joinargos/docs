@@ -1,0 +1,81 @@
+---
+title: "Microsoft 365 integrations"
+description: "Approve the Argos Microsoft application used to connect Outlook and SharePoint in centrally managed tenants."
+---
+
+Argos uses one multitenant Microsoft application for its Outlook and SharePoint integrations. In organizations that restrict user consent, a Microsoft Entra administrator must grant consent before individual users can connect either integration.
+
+<Warning>
+  This application is separate from your organization-specific WorkOS SSO application. Do not add Outlook or SharePoint permissions to the SSO application, and do not use the Microsoft integration application for login or SCIM.
+</Warning>
+
+## Argos application details
+
+| Detail | Value |
+|---|---|
+| Purpose | Outlook and SharePoint integrations |
+| Application type | Argos-owned multitenant Microsoft Entra application |
+| Application (client) ID | `3d61dce1-e589-49f7-bbd6-92512e891896` |
+
+The client ID is a public application identifier. Argos does not provide customers with the application's client secret.
+
+## Grant administrator consent
+
+<Steps>
+  <Step title="Copy your tenant ID">
+    In the Microsoft Entra admin center, open **Identity → Overview** and copy the **Tenant ID** for the organization where users will connect Outlook or SharePoint.
+  </Step>
+  <Step title="Build the administrator consent URL">
+    Replace `<YOUR_TENANT_ID>` in the URL below with your tenant ID. Keep the Argos client ID unchanged.
+
+    `https://login.microsoftonline.com/<YOUR_TENANT_ID>/adminconsent?client_id=3d61dce1-e589-49f7-bbd6-92512e891896`
+  </Step>
+  <Step title="Review and accept the permissions">
+    Open the URL and sign in with an account authorized to grant tenant-wide administrator consent. Review the application name, publisher, and delegated permissions before accepting.
+  </Step>
+  <Step title="Verify the enterprise application">
+    In **Enterprise applications**, find the application by its client ID. Confirm that administrator consent was granted in the correct tenant.
+  </Step>
+  <Step title="Test with an Argos user">
+    Have a user open **Settings → Integrations** in Argos and connect Outlook or SharePoint. The user must still sign in and authorize Argos to act on their behalf.
+  </Step>
+</Steps>
+
+## Delegated permissions
+
+The integration uses delegated permissions. Argos acts on behalf of the signed-in user and cannot access content that user cannot access.
+
+| Integration | Scope | What it allows |
+|---|---|---|
+| Shared | `offline_access` | Lets Argos refresh access tokens so syncing continues without requiring the user to sign in each time. |
+| Shared | `User.Read` | Reads the signed-in user's basic Microsoft profile. |
+| Shared | `openid`, `profile`, `email` | Authenticates the user and returns the identity claims needed to associate the connection with the correct Argos user. |
+| Outlook | `Mail.Read` | Reads messages and attachments in the signed-in user's mailbox. It does not allow Argos to send, modify, or delete mail. |
+| SharePoint | `Files.Read.All` | Reads files the signed-in user can access. It does not allow Argos to create, modify, or delete files. |
+| SharePoint | `Sites.Read.All` | Reads documents and list items in site collections on behalf of the signed-in user. |
+
+<Note>
+  Microsoft can group or repeat permission descriptions across Microsoft Graph and SharePoint resources. If the consent screen shows a permission not listed here, or shows the same permission more than once, send a screenshot to **[support@joinargos.com](mailto:support@joinargos.com)** before approving it.
+</Note>
+
+## Authorization versus syncing
+
+Administrator consent allows users in your tenant to authorize the delegated scopes. It does not cause Argos to ingest every mailbox or SharePoint site in the organization.
+
+- **Outlook:** Argos syncs a mailbox only after that user connects Outlook in Argos.
+- **SharePoint:** The permission authorizes access to files the signed-in user can access. In Argos, the user selects the files or folders to add as matter sources, and Argos syncs those selected sources and their updates.
+
+## Troubleshooting
+
+| Issue | What to check |
+|---|---|
+| Microsoft shows **Need admin approval** | Confirm that administrator consent was granted in the same tenant as the user's work account. |
+| The wrong enterprise application was approved | Search by client ID and confirm it is `3d61dce1-e589-49f7-bbd6-92512e891896`. Do not use the client ID from your WorkOS SSO application. |
+| Consent succeeded but the user still cannot connect | Have the user restart the connection from **Settings → Integrations** and sign in with an account from the approved tenant. |
+| The consent screen shows unexpected permissions | Do not approve until Argos confirms the application and requested permissions. Send the consent-screen screenshot to support. |
+
+## Related guides
+
+- [Connect Outlook](/integrations/outlook)
+- [Connect SharePoint](/integrations/sharepoint)
+- [Microsoft: grant tenant-wide administrator consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent)
